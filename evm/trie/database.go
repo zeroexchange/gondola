@@ -113,7 +113,6 @@ func (db *Database) Has(key []byte) (bool, error) {
 	return db.db.Has(key, nil)
 }
 
-
 func (db *Database) Get(key []byte) ([]byte, error) {
 	dat, err := db.db.Get(key, nil)
 	if err != nil {

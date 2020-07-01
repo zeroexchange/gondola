@@ -12,7 +12,7 @@ import (
 	"github.com/ethereum/go-ethereum/rlp"
 )
 
-struct Trie {
+struct Trie {}
 	t			*trie.Trie
 	trieRoots	[]common.Hash
 }
