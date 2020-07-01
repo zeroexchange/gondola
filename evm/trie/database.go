@@ -3,35 +3,32 @@
 
 package trie
 
-
 import (
 	"errors"
 	"fmt"
 	"sync"
 
-
 	"github.com/ChainSafe/log15"
-	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/syndtr/goleveldb/leveldb"
-
 )
 
 type Database struct {
-	path	string
-	db 		*leveldb.DB
-	lock 	sync.RWMutex
-	log     log15.Logger
+	path string
+	db   *leveldb.DB
+	lock sync.RWMutex
+	log  log15.Logger
 }
 
 type ProofDatabase struct {
-	db map[][]byte
+	db map[byte][]byte
 }
 
 // NewProofDatabase returns a wrapped map
 func NewProofDatabase(path string, log log15.Logger) (*Database, error) {
 	db := &ProofDatabase{
-		db:		make(map[][]byte),
+		db: make(map[byte][]byte),
 	}
 
 	return db
@@ -93,14 +90,13 @@ func NewDatabase(path string, log log15.Logger) (*Database, error) {
 	}
 
 	db := &Database{
-		path:	path,
-		db:		db,
-		log:	log,
+		path: path,
+		db:   db,
+		log:  log,
 	}
 
 	return db, nil
 }
-
 
 func (db *Database) Close() error {
 	db.lock.Lock()

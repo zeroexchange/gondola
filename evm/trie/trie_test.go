@@ -59,7 +59,7 @@ func sendTransaction(t *testing.T, l *listener) common.Hash {
 	return signedTx.Hash()
 }
 
-l.getBlockHashFromTransactionHash(txHash)
+// l.getBlockHashFromTransactionHash(txHash)
 
 // WaitForTx will query the chain at ExpectedBlockTime intervals, until a receipt is returned.
 // Returns an error if the tx failed.
