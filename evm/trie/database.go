@@ -22,13 +22,14 @@ type Database struct {
 }
 
 type ProofDatabase struct {
-	db map[byte][]byte
+	db map[[]byte[]byte
+	lock sync.RWMutex
 }
 
 // NewProofDatabase returns a wrapped map
 func NewProofDatabase(path string, log log15.Logger) (*Database, error) {
 	db := &ProofDatabase{
-		db: make(map[byte][]byte),
+		db: make(map[[]byte][]byte),
 	}
 
 	return db
@@ -46,7 +47,7 @@ func (db *ProofDatabase) Has(key []byte) (bool, error) {
 	if db.db == nil {
 		return false, errors.New("database does not exist")
 	}
-	_, val := db.db[string(key)]
+	_, val := db.db[key]
 	return val, nil
 }
 
@@ -54,11 +55,12 @@ func (db *ProofDatabase) Get(key []byte) ([]byte, error) {
 	if db.db == nil {
 		return nil, errors.New("database does not exist")
 	}
-	if k, val := db.db[key]; val != nil {
-		return common.CopyBytes(entry), nil
+	if val, exists := db.db[key]; exists {
+		return common.CopyBytes(val), nil
 	}
-	return nil, errMemorydbNotFound
-}
+
+	return nil, errors.New("key not in database")
+} 
 
 func (db *ProofDatabase) Put(key []byte, value []byte) error {
 
@@ -89,7 +91,7 @@ func NewDatabase(path string, log log15.Logger) (*Database, error) {
 		return nil, err
 	}
 
-	db := &Database{
+	db = &Database{
 		path: path,
 		db:   db,
 		log:  log,
