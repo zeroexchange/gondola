@@ -5,13 +5,12 @@ package trie
 
 import (
 	"errors"
-	"fmt"
 	"sync"
 
 	"github.com/ChainSafe/log15"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/syndtr/goleveldb/leveldb"
+	"github.com/syndtr/goleveldb/leveldb/util"
 )
 
 type Database struct {
@@ -22,12 +21,12 @@ type Database struct {
 }
 
 type ProofDatabase struct {
-	db map[[]]byte[]byte
-	lock sync.RWMutex
+	db 		map[[]byte][]byte
+	lock 	sync.RWMutex
 }
 
 // NewProofDatabase returns a wrapped map
-func NewProofDatabase(path string, log log15.Logger) (*Database, error) {
+func NewProofDatabase(path string, log log15.Logger) (*ProofDatabase) {
 	db := &ProofDatabase{
 		db: make(map[[]byte][]byte),
 	}
@@ -91,13 +90,13 @@ func NewDatabase(path string, log log15.Logger) (*Database, error) {
 		return nil, err
 	}
 
-	db = &Database{
+	database := &Database{
 		path: path,
 		db:   db,
 		log:  log,
 	}
 
-	return db, nil
+	return database, nil
 }
 
 func (db *Database) Close() error {
@@ -105,6 +104,10 @@ func (db *Database) Close() error {
 	defer db.lock.Unlock()
 
 	return db.db.Close()
+}
+
+func (db *Database) Compact(start []byte, limit []byte) error {
+	return db.db.CompactRange(util.Range{Start: start, Limit: limit})
 }
 
 func (db *Database) Has(key []byte) (bool, error) {

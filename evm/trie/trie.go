@@ -4,7 +4,6 @@
 package trie
 
 import (
-	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"
@@ -17,10 +16,14 @@ type Trie struct {
 }
 
 func NewTrie(root common.Hash, db *Database) (*Trie, error) {
+
+	// TODO: look into cache values
+	// this creates a new trie database with our KVDB as the diskDB for node storage
+	newTrie, err := trie.New(root, trie.NewDatabaseWithCache(db, 0))
+
 	trie := &Trie{
-		// TODO: look into cache values
-		// this creates a new trie database with our KVDB as the diskDB for node storage
-		t: trie.New(root, trie.NewDatabaseWithCache(db, 0)),
+
+		t: newTrie,
 	}
 
 	if root != (common.Hash{}) && root != trie.emptyRoot {
