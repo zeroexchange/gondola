@@ -22,7 +22,7 @@ type Database struct {
 }
 
 type ProofDatabase struct {
-	db map[[]byte[]byte
+	db map[[]]byte[]byte
 	lock sync.RWMutex
 }
 
