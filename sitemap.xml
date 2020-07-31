@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>None</loc>
-     <lastmod>2020-07-29</lastmod>
+     <loc>https://chainsafe.github.io/chainbridge/</loc>
+     <lastmod>2020-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-07-29</lastmod>
+     <loc>https://chainsafe.github.io/chainbridge/installation/</loc>
+     <lastmod>2020-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-07-29</lastmod>
+     <loc>https://chainsafe.github.io/chainbridge/configuration/</loc>
+     <lastmod>2020-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-07-29</lastmod>
+     <loc>https://chainsafe.github.io/chainbridge/chains/ethereum/</loc>
+     <lastmod>2020-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-07-29</lastmod>
+     <loc>https://chainsafe.github.io/chainbridge/chains/substrate/</loc>
+     <lastmod>2020-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-07-29</lastmod>
+     <loc>https://chainsafe.github.io/chainbridge/test/</loc>
+     <lastmod>2020-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
