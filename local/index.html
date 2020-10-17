@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
         
           
           
@@ -71,7 +71,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href=".." title="ChainBridge Docs" class="md-header-nav__button md-logo" aria-label="ChainBridge Docs">
       
@@ -156,7 +158,9 @@
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="ChainBridge Docs" class="md-nav__button md-logo" aria-label="ChainBridge Docs">
       
@@ -705,14 +709,12 @@
 <div class="codehilite"><pre><span></span><code>docker-compose -f ./docker-compose-geth-substrate.yml up -V
 </code></pre></div>
 
-
 <p>(Use <code>-V</code> to always start with new chains. These instructions depend on deterministic ethereum addresses, which are used as defaults implicitly by some of these commands. Avoid re-deploying the contracts without restarting both chains, or ensure to specify all the required parameters.)</p>
 <h2 id="on-chain-setup-ethereum">On-Chain Setup (Ethereum)<a class="headerlink" href="#on-chain-setup-ethereum" title="Permanent link">&para;</a></h2>
 <h3 id="deploy-contracts">Deploy Contracts<a class="headerlink" href="#deploy-contracts" title="Permanent link">&para;</a></h3>
 <p>To deploy the contracts on to the Ethereum chain, run the following:</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli deploy --all --relayerThreshold <span class="m">1</span>
 </code></pre></div>
-
 
 <p>After running, the expected output looks like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="o">================================================================</span>
@@ -748,7 +750,6 @@ Centrifuge Asset:   <span class="nv">0xc279648CE5cAa25B9bA753dAb0Dfef44A069BaF4<
 <span class="o">================================================================</span>
 </code></pre></div>
 
-
 <h3 id="register-resources">Register Resources<a class="headerlink" href="#register-resources" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Register fungible resource ID with erc20 contract</span>
 cb-sol-cli bridge register-resource --resourceId <span class="s2">&quot;0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00&quot;</span> --targetContract <span class="s2">&quot;0x21605f71845f372A9ed84253d2D024B7B10999f4&quot;</span>
@@ -759,7 +760,6 @@ cb-sol-cli bridge register-resource --resourceId <span class="s2">&quot;0x000000
 <span class="c1"># Register generic resource ID</span>
 cb-sol-cli bridge register-generic-resource --resourceId <span class="s2">&quot;0x000000000000000000000000000000f44be64d2de895454c3467021928e55e01&quot;</span> --targetContract <span class="s2">&quot;0xc279648CE5cAa25B9bA753dAb0Dfef44A069BaF4&quot;</span> --handler <span class="s2">&quot;0x2B6Ab4b880A45a07d83Cf4d664Df4Ab85705Bc07&quot;</span> --hash --deposit <span class="s2">&quot;&quot;</span> --execute <span class="s2">&quot;store(bytes32)&quot;</span>
 </code></pre></div>
-
 
 <h3 id="specify-token-semantics">Specify Token Semantics<a class="headerlink" href="#specify-token-semantics" title="Permanent link">&para;</a></h3>
 <p>To allow for a variety of use cases, the Ethereum contracts support both the <code>transfer</code> and the <code>mint/burn</code> ERC methods.</p>
@@ -776,7 +776,6 @@ cb-sol-cli bridge set-burn --tokenContract <span class="s2">&quot;0xd7E33e1bbf65
 <span class="c1"># Add the handler as a minter</span>
 cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36ADBA86ACC617FeB7F5B7B193E&quot;</span>
 </code></pre></div>
-
 
 <h2 id="on-chain-setup-substrate">On-Chain Setup (Substrate)<a class="headerlink" href="#on-chain-setup-substrate" title="Permanent link">&para;</a></h2>
 <h3 id="registering-relayers">Registering Relayers<a class="headerlink" href="#registering-relayers" title="Permanent link">&para;</a></h3>
@@ -826,11 +825,9 @@ cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36AD
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>You can then start a relayer using the default "Alice" key:</p>
 <div class="codehilite"><pre><span></span><code>chainbridge --config config.json --testkey alice --latest
 </code></pre></div>
-
 
 <h2 id="fungible-transfers">Fungible Transfers<a class="headerlink" href="#fungible-transfers" title="Permanent link">&para;</a></h2>
 <h3 id="substrate-native-token-erc-20">Substrate Native Token ⇒ ERC 20<a class="headerlink" href="#substrate-native-token-erc-20" title="Permanent link">&para;</a></h3>
@@ -844,22 +841,18 @@ cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36AD
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc20 balance --address <span class="s2">&quot;0xff93B45308FD417dF303D6515aB04D9e89a750Ca&quot;</span>
 </code></pre></div>
 
-
 <h3 id="erc20-substrate-native-token">ERC20 ⇒ Substrate Native Token<a class="headerlink" href="#erc20-substrate-native-token" title="Permanent link">&para;</a></h3>
 <p>If necessary, you can mint some tokens:</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc20 mint --amount <span class="m">1000</span>
 </code></pre></div>
 
-
 <p>Before initiating the transfer we have to approve the bridge to take ownership of the tokens:</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc20 approve --amount <span class="m">1000</span> --recipient <span class="s2">&quot;0x3167776db165D8eA0f51790CA2bbf44Db5105ADF&quot;</span>
 </code></pre></div>
 
-
 <p>To initiate a transfer on the ethereum chain use this command (Note: there will be a 10 block delay before the relayer will process the transfer):</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc20 deposit --amount <span class="m">1000</span> --dest <span class="m">1</span> --recipient <span class="s2">&quot;0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d&quot;</span> --resourceId <span class="s2">&quot;0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00&quot;</span>
 </code></pre></div>
-
 
 <h2 id="non-fungible-transfers">Non-Fungible Transfers<a class="headerlink" href="#non-fungible-transfers" title="Permanent link">&para;</a></h2>
 <h3 id="substrate-nft-erc721">Substrate NFT ⇒ ERC721<a class="headerlink" href="#substrate-nft-erc721" title="Permanent link">&para;</a></h3>
@@ -879,22 +872,18 @@ cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36AD
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc721 owner --id 0x1
 </code></pre></div>
 
-
 <h3 id="erc721-substrate-nft">ERC721 ⇒ Substrate NFT<a class="headerlink" href="#erc721-substrate-nft" title="Permanent link">&para;</a></h3>
 <p>If necessary, you can mint an erc721 token like this:</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc721 mint --id 0x99
 </code></pre></div>
 
-
 <p>Before initiating the transfer, we must approve the bridge to take ownership of the tokens:</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc721 approve --id 0x99 --recipient <span class="s2">&quot;0x3f709398808af36ADBA86ACC617FeB7F5B7B193E&quot;</span>
 </code></pre></div>
 
-
 <p>Now we can initiate the transfer:</p>
 <div class="codehilite"><pre><span></span><code>cb-sol-cli erc721 deposit --id 0x99 --dest <span class="m">1</span> --resourceId <span class="s2">&quot;0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501&quot;</span> --recipient <span class="s2">&quot;0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d&quot;</span>
 </code></pre></div>
-
 
 <h3 id="generic-data-transfer">Generic Data Transfer<a class="headerlink" href="#generic-data-transfer" title="Permanent link">&para;</a></h3>
 <p>To demonstrate a possible use of the generic data transfer, we have a hash registry on ethereum. We also have a method on the example substrate chain to emit a hash inside an event, which we can trigger from ethereum. </p>
@@ -986,8 +975,8 @@ cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36AD
       
     </div>
     
-      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
-      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
