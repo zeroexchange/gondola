@@ -223,6 +223,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#relevant-repos" class="md-nav__link">
     Relevant repos
   </a>
@@ -238,15 +245,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ethereum-solidity" class="md-nav__link">
-    Ethereum (Solidity)
+  <a href="#chainbridge-solidity" class="md-nav__link">
+    chainbridge-solidity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#substrate" class="md-nav__link">
-    Substrate
+  <a href="#chainbridge-substrate" class="md-nav__link">
+    chainbridge-substrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chainbridge-utils" class="md-nav__link">
+    chainbridge-utils
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chainbridge-deploy" class="md-nav__link">
+    chainbridge-deploy
   </a>
   
 </li>
@@ -292,33 +313,33 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="spec/" class="md-nav__link">
-      Specification
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-5">
-      Chains
+    <label class="md-nav__link" for="nav-4">
+      Specification
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Chains" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+    <nav class="md-nav" aria-label="Specification" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon"></span>
-        Chains
+        Specification
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="spec/" class="md-nav__link">
+      ChainBridge
+    </a>
+  </li>
+
         
           
           
@@ -397,6 +418,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#relevant-repos" class="md-nav__link">
     Relevant repos
   </a>
@@ -412,15 +440,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ethereum-solidity" class="md-nav__link">
-    Ethereum (Solidity)
+  <a href="#chainbridge-solidity" class="md-nav__link">
+    chainbridge-solidity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#substrate" class="md-nav__link">
-    Substrate
+  <a href="#chainbridge-substrate" class="md-nav__link">
+    chainbridge-substrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chainbridge-utils" class="md-nav__link">
+    chainbridge-utils
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chainbridge-deploy" class="md-nav__link">
+    chainbridge-deploy
   </a>
   
 </li>
@@ -448,17 +490,21 @@
                 
                 
                 <h1 id="overview">🌉 <b> Overview </b><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p><a href="https://travis-ci.com/ChainSafe/ChainBridge"><img alt="Build Status" src="https://travis-ci.com/ChainSafe/ChainBridge.svg?branch=master" /></a></p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>At a high level, ChainBridge is a message passing protocol. Events on a source chain are used to create a message that is then delivered to the destination chain. We define the concept of a Listener to extract events from a chain and construct a message, and a Writer to interpret messages and submit transactions to a chain. </p>
+<p><img alt="" src="img/overview.png" /></p>
+<p><img alt="" src="img/system-flow.png" /></p>
 <h2 id="relevant-repos">Relevant repos<a class="headerlink" href="#relevant-repos" title="Permanent link">&para;</a></h2>
-<h3 id="chainbridge">ChainBridge<a class="headerlink" href="#chainbridge" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/ChainSafe/ChainBridge">chainbridge</a></p>
-<p>A Modular Multi-Directional Blockchain Bridge to interact with Multiple Networks.</p>
-<h3 id="ethereum-solidity">Ethereum (Solidity)<a class="headerlink" href="#ethereum-solidity" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/ChainSafe/chainbridge-solidity">chainbridge-solidity</a> </p>
+<h3 id="chainbridge"><a href="https://github.com/ChainSafe/ChainBridge">ChainBridge</a><a class="headerlink" href="#chainbridge" title="Permanent link">&para;</a></h3>
+<p>This is the core bridging software that Relayers run between chains.</p>
+<h3 id="chainbridge-solidity"><a href="https://github.com/ChainSafe/chainbridge-solidity">chainbridge-solidity</a><a class="headerlink" href="#chainbridge-solidity" title="Permanent link">&para;</a></h3>
 <p>The Solidity contracts required for chainbridge. Includes deployment and interaction CLI.</p>
-<h3 id="substrate">Substrate<a class="headerlink" href="#substrate" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/ChainSafe/chainbridge-substrate">chainbridge-substrate</a></p>
+<h3 id="chainbridge-substrate"><a href="https://github.com/ChainSafe/chainbridge-substrate">chainbridge-substrate</a><a class="headerlink" href="#chainbridge-substrate" title="Permanent link">&para;</a></h3>
 <p>A substrate pallet that can be integrated into a chain, as well as an example pallet to demonstrate chain integration.</p>
+<h3 id="chainbridge-utils"><a href="https://github.com/ChainSafe/chainbridge-utils">chainbridge-utils</a><a class="headerlink" href="#chainbridge-utils" title="Permanent link">&para;</a></h3>
+<p>A collection of packages used by the core bridging software.</p>
+<h3 id="chainbridge-deploy"><a href="https://github.com/ChainSafe/ChainBridge">chainbridge-deploy</a><a class="headerlink" href="#chainbridge-deploy" title="Permanent link">&para;</a></h3>
+<p>Some tooling to help with deployments.</p>
                 
               
               
