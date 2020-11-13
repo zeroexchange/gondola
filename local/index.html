@@ -700,7 +700,9 @@
 <li>Docker, docker-compose</li>
 <li>chainbridge <code>v1.0.0</code> binary (see <a href="https://github.com/chainsafe/chainbridge/#building">README</a>)</li>
 <li>Polkadot JS Portal (<a href="https://portal.chain.centrifuge.io/">https://portal.chain.centrifuge.io</a>)<ul>
-<li>Type definitions can be found here: <a href="https://gist.github.com/ansermino/0280b30594a9bc653ae288ccca46dc55">https://gist.github.com/ansermino/0280b30594a9bc653ae288ccca46dc55</a></li>
+<li>Connect to your local node (below) by clicking in the top-left corner and using <code>ws://localhost:9944</code></li>
+<li>You will need to setup the type definitions for the chain by selecting <code>Settings</code> -&gt; <code>Developer</code></li>
+<li>Type definitions can be found here: <a href="https://github.com/ChainSafe/chainbridge-substrate-chain#polkadot-js-apps">PolkadotJS Apps</a></li>
 </ul>
 </li>
 <li>cb-sol-cli (see <a href="https://github.com/ChainSafe/chainbridge-deploy/tree/master/cb-sol-cli#cb-sol-cli-documentation">README</a>)</li>
@@ -826,8 +828,18 @@ cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36AD
 <span class="p">}</span>
 </code></pre></div>
 
-<p>You can then start a relayer using the default "Alice" key:</p>
+<p>Run <code>make install</code> in ChanBridge directory to build chainbridge and put it in GOBIN path, </p>
+<p>You can then start a relayer as a binary using the default "Alice" key.</p>
 <div class="codehilite"><pre><span></span><code>chainbridge --config config.json --testkey alice --latest
+</code></pre></div>
+
+<p>OR </p>
+<p>By building an image first</p>
+<div class="codehilite"><pre><span></span><code>docker build -t chainsafe/chainbridge .
+</code></pre></div>
+
+<p>You can start the relayer as a docker container </p>
+<div class="codehilite"><pre><span></span><code>docker run -v ./config.json:/config.json --network host chainsafe/chainbridge --testkey alice --latest
 </code></pre></div>
 
 <h2 id="fungible-transfers">Fungible Transfers<a class="headerlink" href="#fungible-transfers" title="Permanent link">&para;</a></h2>
@@ -852,7 +864,7 @@ cb-sol-cli erc721 add-minter --minter <span class="s2">&quot;0x3f709398808af36AD
 </code></pre></div>
 
 <p>To initiate a transfer on the ethereum chain use this command (Note: there will be a 10 block delay before the relayer will process the transfer):</p>
-<div class="codehilite"><pre><span></span><code>cb-sol-cli erc20 deposit --amount <span class="m">1000</span> --dest <span class="m">1</span> --recipient <span class="s2">&quot;0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d&quot;</span> --resourceId <span class="s2">&quot;0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00&quot;</span>
+<div class="codehilite"><pre><span></span><code>cb-sol-cli erc20 deposit --amount <span class="m">1</span> --dest <span class="m">1</span> --recipient <span class="s2">&quot;0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d&quot;</span> --resourceId <span class="s2">&quot;0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00&quot;</span>
 </code></pre></div>
 
 <h2 id="non-fungible-transfers">Non-Fungible Transfers<a class="headerlink" href="#non-fungible-transfers" title="Permanent link">&para;</a></h2>
