@@ -493,14 +493,15 @@
 <h3 id="ethereum-options">Ethereum Options<a class="headerlink" href="#ethereum-options" title="Permanent link">&para;</a></h3>
 <p>Ethereum chains support the following additional options:</p>
 <div class="codehilite"><pre><span></span><code><span class="err">{</span>
-<span class="err">    &quot;bridge&quot;: &quot;0x12345...&quot;          // Address of the bridge contract (required)</span>
-<span class="err">    &quot;erc20Handler&quot;: &quot;0x1234...&quot;     // Address of erc20 handler (required)</span>
-<span class="err">    &quot;erc721Handler&quot;: &quot;0x1234...&quot;    // Address of erc721 handler (required)</span>
-<span class="err">    &quot;genericHandler&quot;: &quot;0x1234...&quot;   // Address of generic handler (required)</span>
-<span class="err">    &quot;maxGasPrice&quot;: &quot;0x1234&quot;            // Gas price for transactions (default: 20000000000)</span>
-<span class="err">    &quot;gasLimit&quot;: &quot;0x1234&quot;            // Gas limit for transactions (default: 6721975)</span>
-<span class="err">    &quot;http&quot;: &quot;true&quot;                  // Whether the chain connection is ws or http (default: false)</span>
-<span class="err">    &quot;startBlock&quot;: &quot;1234&quot;            // The block to start processing events from (default: 0)</span>
+<span class="err">    &quot;bridge&quot;: &quot;0x12345...&quot;,          // Address of the bridge contract (required)</span>
+<span class="err">    &quot;erc20Handler&quot;: &quot;0x1234...&quot;,     // Address of erc20 handler (required)</span>
+<span class="err">    &quot;erc721Handler&quot;: &quot;0x1234...&quot;,    // Address of erc721 handler (required)</span>
+<span class="err">    &quot;genericHandler&quot;: &quot;0x1234...&quot;,   // Address of generic handler (required)</span>
+<span class="err">    &quot;maxGasPrice&quot;: &quot;0x1234&quot;,         // Gas price for transactions (default: 20000000000)</span>
+<span class="err">    &quot;gasLimit&quot;: &quot;0x1234&quot;,            // Gas limit for transactions (default: 6721975)</span>
+<span class="err">    &quot;http&quot;: &quot;true&quot;,                  // Whether the chain connection is ws or http (default: false)</span>
+<span class="err">    &quot;startBlock&quot;: &quot;1234&quot;,            // The block to start processing events from (default: 0)</span>
+<span class="err">    &quot;blockConfirmations&quot;: &quot;10&quot;       // Number of blocks to wait before processing a block</span>
 <span class="err">}</span>
 </code></pre></div>
 
