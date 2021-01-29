@@ -25,6 +25,7 @@ import (
 	ethcommon "github.com/ethereum/go-ethereum/common"
 )
 
+var FetchBlockInterval = time.Second / 50
 var BlockRetryInterval = time.Second * 5
 var BlockRetryLimit = 5
 var ErrFatalPolling = errors.New("listener block polling failed")
@@ -107,6 +108,7 @@ func (l *listener) pollBlocks() error {
 				return nil
 			}
 
+			time.Sleep(FetchBlockInterval)
 			latestBlock, err := l.conn.LatestBlock()
 			if err != nil {
 				l.log.Error("Unable to get latest block", "block", currentBlock, "err", err)
